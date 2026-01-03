@@ -43,7 +43,7 @@ function changeInput(e) {
                 // resetButtons();
                 // console.log("changeinput");
                 // showpopBox();
-                tıkla(inputData);
+                tıkla(inputData,"");
             }
 
 
@@ -113,11 +113,11 @@ function saveData(data) {
     localStorage.setItem("otopark", JSON.stringify(data));
 }
 
-function tıkla(e) {
-    console.log("tıkla");
+function tıkla(e,style = "tıkla") {
+
     document.getElementById("plaka").value = e
     document.getElementById("popbox").classList.add("activated");
-    showpopBox("tıkla")
+    showpopBox(style)
     resetButtons();
     document.getElementById("pop-box-input").focus();
 
