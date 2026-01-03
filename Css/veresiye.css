@@ -1,0 +1,266 @@
+:root {
+    /* Karanlık Mod (Varsayılan) */
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --nav-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --accent: #6366f1;
+    --success: #10b981;
+    --danger: #f43f5e;
+    --warning: #fbbf24;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body.light-mode {
+    /* Açık Mod */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --nav-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-dim: #64748b;
+    --accent: #4f46e5;
+    --input-bg: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+/* --- NAVBAR --- */
+nav.fis-out {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Görünüm Değiştir Butonu - Daha Şık */
+.theme-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.theme-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* --- INPUT KUTUSU - Genişlik Ayarı --- */
+.input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 600px; /* Kutuyu daralttım */
+    padding: 0 20px;
+}
+
+.input-box input {
+    flex: 1;
+    /* height: 45px; */
+    width: 300px;
+    background: var(--input-bg);
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+    color: var(--text-main);
+    padding: 0 15px;
+    font-size: 48px;
+    font-weight: 500;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.input-box .veresiye-toplam {
+    background: var(--accent);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 34px;
+    opacity: 1 !important;
+    letter-spacing: 1px;
+}
+
+/* --- LİSTE KARTLARI - Daha Dar ve Okunaklı --- */
+.veresiye-list {
+    max-width: 1050px; /* Genişliği azalttım, daha toplu durur */
+    margin: 0 auto;
+    padding: 10px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.veresiye-list .item {
+    display: grid;
+    grid-template-columns: 230px 200px 150px 1fr auto; /* Sütun genişlikleri */
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+}
+
+.veresiye-list .item:hover {
+    transform: scale(1.02) translateY(-3px);
+    border-color: var(--accent);
+}
+
+/* YAZI RENKLERİ */
+.veresiye-list .item p.plaka { 
+    font-weight: 700; 
+    color: var(--accent); /* Plaka rengi ana vurgu rengi */
+    font-size: 26px; 
+}
+
+.veresiye-list .item p.date { 
+    color: var(--text-dim); 
+    font-size: 20px; 
+}
+
+.veresiye-list .item p.price { 
+    font-weight: 700; 
+    color: var(--success); /* Fiyat yeşil kalsın */
+    font-size: 26px; 
+}
+
+.veresiye-list .data {
+    background: rgba(128, 128, 128, 0.05);
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    border-radius: 8px;
+    color: var(--text-main);
+    
+    padding: 8px;
+    height: 40px;
+    margin: 0 10px;
+    font-size: 13px;
+    resize: none;
+    max-width: 150px;
+}
+
+/* --- BUTON GRUBU - Gradyanlı ve Canlı --- */
+.button-group { display: flex; gap: 6px; }
+
+.button-group button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    text-transform: uppercase;
+}
+
+.button-group button.pay {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.button-group button.delete {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+}
+
+.button-group button.save {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.button-group button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+
+
+
+/* Dropdown Gruplayıcı */
+.plaka-wrapper {
+    background: var(--bg-card);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: var(--shadow);
+}
+
+/* Tıklanabilir Başlık (Summary) */
+.plaka-summary {
+    padding: 15px 20px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: none;
+}
+
+.plaka-summary::-webkit-details-marker {
+    display: none; /* Standart oku kaldır */
+}
+
+.plaka-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.plaka-meta {
+    font-size: 16px;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* İçerik Açıldığında */
+.plaka-details-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    background: rgba(0, 0, 0, 0.1); /* Hafif derinlik hissi */
+}
+
+/* Alt Öğeler (Mevcut .item stilini korur) */
+.sub-item {
+    margin: 0 !important;
+    transform: none !important; /* Grup içinde animasyonu kapatıyoruz */
+    background: var(--bg-body) !important; /* İçerideki kartlar biraz daha koyu/açık */
+}
+
+/* Ok işareti animasyonu */
+.plaka-wrapper[open] .arrow {
+    transform: rotate(180deg);
+}
+
+.arrow {
+    transition: 0.3s;
+    color: var(--accent);
+}

@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    /* background-color: black;
+    color: white; */
+}
+
+body{
+    width: 210mm ;
+    /* height: 297mm ; */
+    padding: 5px;
+}
+
+.yazdır{
+
+    margin: 15px;
+    font-size: 25px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #626F47;
+    border: 2px solid #626F47;
+    cursor: pointer;
+    transition: 0.2s all linear;
+}
+
+.yazdır:hover{
+    background-color: #A4B465;
+    color: white;
+    border: 2px solid #A4B465;
+}
+
+
+.baslik{
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.liste{
+    width: 80%;
+    margin: 0px auto;
+
+}
+
+.liste .item{
+    display: flex;
+    justify-content: space-between;
+    font-size: 26px;
+    border-bottom: 3px solid #888;
+    padding: 0 80px;
+}

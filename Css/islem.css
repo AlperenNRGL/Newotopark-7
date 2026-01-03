@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- 1. Renk Değişkenleri (Açık Tema Varsayılan) --- */
+:root {
+    --bg-main: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #1a1c2e;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --input-bg: #ffffff;
+    
+    --primary: #4361ee;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --info: #06b6d4;
+    --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* --- 2. Renk Değişkenleri (Koyu Tema Sınıfı) --- */
+/* JavaScript ile body etiketine .dark eklendiğinde bu renkler aktif olur */
+body.dark {
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --input-bg: #1e293b;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* --- 3. Genel Stil Ayarları --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+/* Konteynır - Genişliği dolgunluk için daralttık */
+.islem-list {
+    width: 90%;
+    max-width: 950px; 
+    margin: 40px auto;
+}
+
+/* --- 4. Bilgi ve Arama Alanı --- */
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.info span {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 12px;
+    color: white; /* Rozetlerin içi her zaman beyaz kalır */
+}
+
+.request {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.request input {
+    width: 100%;
+    max-width: 450px;
+    height: 75px;
+    padding: 0 25px;
+    font-size: 26px; /* Büyük plaka yazısı */
+    font-weight: 700;
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border: 3px solid var(--border-color);
+    border-radius: 18px;
+    text-transform: uppercase;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.request input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.2);
+}
+
+.request button {
+    height: 75px;
+    padding: 0 40px;
+    font-size: 22px;
+    font-weight: 800;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.request button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* --- 5. İşlem Satırları (Kutular) --- */
+.islem-list .item {
+    display: grid;
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 30px; /* Kutuları doldurmak için yüksek iç boşluk */
+    margin-bottom: 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--shadow);
+    border-left: 12px solid #ccc; /* Kalın renkli dikey şerit */
+    transition: all 0.3s ease;
+}
+
+.islem-list .item:hover {
+    transform: scale(1.02) translateX(5px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.islem-list .item p {
+    font-size: 24px; /* Çok büyük ve net font */
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Plaka Kısmı */
+.islem-list .item p:first-child {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Ücret Kısmı */
+.islem-list .item p:last-child {
+    text-align: right;
+    font-size: 28px; /* Ücretler daha vurgulu */
+    font-weight: 900;
+}
+
+/* --- 6. Duruma Göre Renklendirme --- */
+.giris { border-left-color: var(--success) !important; }
+.cıkıs { border-left-color: var(--danger) !important; }
+.veresiye { border-left-color: var(--warning) !important; }
+.veresiye-sil { border-left-color: var(--info) !important; }
+.veresiye-ode { border-left-color: var(--primary) !important; }
+.totalcıkıs { border-left-color: #7c3aed !important; }
+.delete { border-left-color: #f97316 !important; }
+
+/* Bilgi rozetleri arka plan renkleri (HTML içindeki info spanları için) */
+.info .giris { background-color: var(--success) !important; }
+.info .cıkıs { background-color: var(--danger) !important; }
+.info .veresiye { background-color: var(--warning) !important; }
+.info .veresiye-sil { background-color: var(--info) !important; }
+.info .veresiye-ode { background-color: var(--primary) !important; }
+.info .totalcıkıs { background-color: #7c3aed !important; }
+.info .delete { background-color: #f97316 !important; }
+
+/* Liste içindeki ücretlerin renklerini temaya göre ayarla (Opsiyonel) */
+body.dark .islem-list .item.giris p:last-child { color: var(--success); }
+body.dark .islem-list .item.cıkıs p:last-child { color: var(--danger); }
+
+/* --- 7. Mobil Uyumluluk --- */
+@media (max-width: 768px) {
+    .islem-list { width: 95%; }
+    .islem-list .item {
+        grid-template-columns: 1fr 1fr; /* Mobilde 2 sütuna düşer */
+        padding: 25px;
+        gap: 15px;
+    }
+    .islem-list .item p { font-size: 18px; }
+}
+
+
+
+.islem-list .info {
+    display: grid; /* Flex yerine Grid kullanıyoruz */
+    grid-template-columns: repeat(3, 1fr); /* Yan yana tam olarak 3 eşit sütun */
+    gap: 15px; /* Butonlar arası boşluk */
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.info span {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 10px; /* Dikeyde biraz daha genişletildi */
+    border-radius: 12px;
+    color: white;
+    text-align: center; /* Metni butonun ortasına hizalar */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block; /* Izgara hücresini tam doldurması için */
+    transition: transform 0.2s ease;
+}
+
+/* 7. butonun (tek kalan) 3 sütunu birden kaplamasını isterseniz: */
+.info span:last-child {
+    grid-column: span 3; /* En alttaki butonu tüm genişliğe yayar */
+}
+
+/* Mobil cihazlarda (Telefonlarda) 3'lü sıra çok dar kalacağı için 2'li sıraya döner */
+@media (max-width: 600px) {
+    .islem-list .info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .info span:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* --- İşlem Satırları (Kutular) --- */
+.islem-list .item {
+    display: grid;
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 30px;
+    margin-bottom: 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--shadow);
+    
+    /* Şeridi çok daha belirgin yapmak için ayarlar */
+    border-left: 15px solid #ccc; /* Genişlik 12px'den 15px'e çıkarıldı */
+    position: relative;
+    overflow: hidden; /* Parlama efektinin taşmasını engeller */
+    
+    transition: all 0.3s ease;
+}
+
+/* Şeride içten bir derinlik katmak için (Opsiyonel) */
+.islem-list .item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Şeridin en soluna daha koyu bir hat çeker */
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* --- Duruma Göre Çok Daha Belirgin Renkler ve Parlama (Glow) --- */
+
+/* Giriş - Yeşil */
+.giris { 
+    border-left-color: var(--success) !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(16, 185, 129, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Çıkış - Kırmızı */
+.cıkıs { 
+    border-left-color: var(--danger) !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(239, 68, 68, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Veresiye - Turuncu/Sarı */
+.veresiye { 
+    border-left-color: var(--warning) !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(245, 158, 11, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Veresiye Silme - Açık Mavi */
+.veresiye-sil { 
+    border-left-color: var(--info) !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(6, 182, 212, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Veresiye Ödeme - Mavi */
+.veresiye-ode { 
+    border-left-color: var(--primary) !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(67, 97, 238, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Toplam Çıkış - Mor */
+.totalcıkıs { 
+    border-left-color: #7c3aed !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(124, 58, 237, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+/* Silme - Turuncu */
+.delete { 
+    border-left-color: #f97316 !important; 
+    box-shadow: inset 10px 0 15px -10px rgba(249, 115, 22, 0.4), 0 4px 15px var(--shadow) !important;
+}
+
+
+
+/* İşlem satırı için temel hazırlık */
+.islem-list .item {
+    position: relative; /* Tooltip'in doğru konumlanması için şart */
+    /* ... mevcut diğer kodlarınız ... */
+}
+
+/* Tooltip (İpucu) Genel Stili */
+.islem-list .item::after {
+    content: "İşlem"; /* Varsayılan metin */
+    position: absolute;
+    left: -120px; /* Kutunun solunda görünmesi için */
+    background: var(--card-bg);
+    color: var(--text-main);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 2px solid #ccc;
+    opacity: 0; /* Başlangıçta gizli */
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Üstüne gelince görünür yap */
+.islem-list .item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(10px);
+}
+
+/* --- İşlem Türlerine Göre Dinamik Metin ve Renkler --- */
+
+.item.giris::after { content: "Giriş Yapıldı"; border-color: var(--success); }
+.item.cıkıs::after { content: "Çıkış Yapıldı"; border-color: var(--danger); }
+.item.veresiye::after { content: "Veresiye Kaydı"; border-color: var(--warning); }
+.item.veresiye-sil::after { content: "Veresiye Silindi"; border-color: var(--info); }
+.item.veresiye-ode::after { content: "Ödeme Alındı"; border-color: var(--primary); }
+.item.totalcıkıs::after { content: "Toplam Çıkış"; border-color: #7c3aed; }
+.item.delete::after { content: "Kayıt Silindi"; border-color: #f97316; }
+
+
+
+
+.islem-list .item {
+    border-left: 20px solid #ccc; /* Genişliği 20px yaparak çok daha belirgin hale getirdik */
+    /* ... */
+}
+
+/* Üstüne gelindiğinde şeridi genişletme efekti */
+.islem-list .item:hover {
+    border-left-width: 30px; /* Fare ile gelince şerit daha da büyür */
+}
+
+
+/* 1. Kapsayıcı Ayarı: Taşıyıcıda taşmaları gizleyen kodu kaldırın veya düzenleyin */
+.islem-list .item {
+    position: relative;
+    overflow: visible !important; /* Tooltip'in gözükmesi için bu şart */
+    /* ... diğer mevcut kodlarınız ... */
+}
+
+/* 2. Tooltip (İpucu) Tasarımı: Üst-Orta Konumlandırma */
+.islem-list .item::after {
+    content: "İşlem"; 
+    position: absolute;
+    top: -45px; /* Kutunun üstünde görünmesini sağlar */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Ortalar ve efekt için aşağı çeker */
+    background: #334155; /* Koyu, şık bir arka plan */
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Küçük bir ok işareti ekleyelim (Kutuyu işaret etmesi için) */
+.islem-list .item::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #334155 transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+    z-index: 100;
+}
+
+/* 3. Hover Durumu: Üstüne gelince yukarı doğru yumuşakça çıksın */
+.islem-list .item:hover::after,
+.islem-list .item:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 4. İşlem Türlerine Göre Metinler */
+.item.giris::after { content: "✅ Araç Girişi Yapıldı"; }
+.item.cıkıs::after { content: "🚪 Araç Çıkışı Yapıldı"; }
+.item.veresiye::after { content: "📝 Veresiye Kaydedildi"; }
+.item.veresiye-sil::after { content: "🗑️ Veresiye Silindi"; }
+.item.veresiye-ode::after { content: "💰 Ödeme Alındı"; }
+.item.totalcıkıs::after { content: "📊 Günlük Kasa Çıkışı"; }
+.item.delete::after { content: "⚠️ Kayıt İptal Edildi"; }

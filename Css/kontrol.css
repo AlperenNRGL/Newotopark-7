@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    margin: 50px 20px;
+    width: 80vw;
+    /* height: 800px; */
+}
+
+
+.data-equlizer{
+    margin: 50px;
+    
+}
+
+.data-equlizer button{
+    background-color: red;
+    color: white;
+    border: none;
+    border: 3px solid white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.data-equlizer button:hover{
+    background-color: white;
+    color: red;
+    border: 3px solid red;
+}
+
+
+
+
+.pop-box.activated {
+    display: block;
+}
+
+.pop-box {
+    display: none;
+    background-color: rgba(111, 130, 106, 0.9);
+    z-index: 2;
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: -800px;
+    left: 0;
+    right: 0;
+}
+
+
+.pop-box .show-box {
+    font-family:'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    position: relative;
+    content: "";
+    z-index: 3;
+    width: 50%;
+    /* height: 80%; */
+    background-color: white;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 20px 50px;
+    padding-bottom: 40px;
+}
+
+.pop-box .show-box input{
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    /* outline: none; */
+    border: 2px solid #8888;
+}
+
+.pop-box .show-box button{
+    cursor: pointer;
+    margin: 15px 0px;
+    font-size: 22px;
+    padding: 7px 9px;
+    border: 2px solid red;
+    background-color: white;
+    color: red;
+    border-radius: 5px;
+}

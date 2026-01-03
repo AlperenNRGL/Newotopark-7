@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <button onclick="syncData()">Veri Eşitle</button>
+
+
+        <script src="/JS/url.js"></script>
+        <script>
+            const syncData = async () => {
+                const oldData = localStorage.getItem("veresiye");
+
+
+                try {
+                    const response = await fetch(url + "/api/veresiye/bulk", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: oldData
+                    });
+                    console.log("Kayıt başarılı:");
+                    alert("Tüm veriler senkronize edildi!");
+                } catch (err) {
+                    console.error("Hata oluştu:", err);
+                }
+            }
+
+
+
+        </script>
+
+    </body>
+
+</html>

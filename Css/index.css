@@ -1,0 +1,890 @@
+/* --- 1. DEĞİŞKENLER VE TEMA AYARLARI --- */
+:root {
+    /* KOYU MOD (Varsayılan) */
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --input-bg: #1e293b;
+    --border-color: #334155;
+    --accent: #6366f1;
+    --success: #10b981;
+    --danger: #f43f5e;
+    --warning: #f59e0b;
+    --neutral: #94a3b8;
+    /* Kapat Butonu */
+    --info: #475569;
+
+}
+
+/* AÇIK MOD SİSTEMİ */
+body.light-mode {
+    --bg-body: #f1f5f9;
+    /* Açık Gri Arka Plan */
+    --bg-card: #ffffff;
+    /* Saf Beyaz Kartlar */
+    --text-main: #1e293b;
+    /* Koyu Lacivert Yazı */
+    --text-dim: #64748b;
+    /* Gri Yardımcı Yazı */
+    --input-bg: #ffffff;
+    --border-color: #cbd5e1;
+    /* Daha Belirgin Kenarlık */
+    --accent: #4f46e5;
+}
+
+:root {
+    /* KOYU TEMA (Varsayılan) */
+    --modal-bg: #1e293b;
+    --modal-overlay: rgba(15, 23, 42, 0.9);
+    --text-main: #ffffff;
+    --text-dim: #94a3b8;
+    --price-bg: #f8fafc;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode {
+    /* BEYAZ TEMA */
+    --modal-bg: #ffffff;
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --text-main: #1e293b;
+    --text-dim: #64748b;
+    --price-bg: #f1f5f9;
+    --border-color: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- 2. NAVBAR --- */
+nav.fis-out {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* nav .baslik h1 {
+    font-size: 24px;
+    font-weight: 700;
+} */
+
+nav .flex {
+    display: flex;
+    gap: 20px;
+}
+
+nav .item {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--bg-card);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid var(--border-color); */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 3. GİRİŞ ALANI --- */
+.input-box {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-box input {
+    width: 100%;
+    max-width: 700px;
+    height: 140px;
+    font-size: 110px;
+    font-weight: 700;
+    background: var(--input-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main);
+    text-align: left;
+    outline: none;
+    text-transform: uppercase;
+    padding-left: 20px;
+    letter-spacing: 1px;
+}
+
+.input-box input:focus {
+    border-color: var(--accent);
+}
+
+/* --- 4. LİSTE ÖĞELERİ --- */
+.number-list,
+.veresiye-list {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.number-list .item {
+    background: var(--bg-card);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.number-list .kamyonet div:nth-child(1){
+    color: var(--danger) ;
+}
+
+:root {
+    /* Açık Tema */
+    --active-bg: #1e293b;
+    --active-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Koyu Tema - Gözü yormayan ama kontrastı yüksek bir ton */
+        --active-bg: #3730a3;
+        --active-text: #ffffff;
+    }
+}
+
+/* Ana taşıyıcı (satır) */
+.item-activated {
+    background-color: var(--active-bg) !important;
+    transition: all 0.2s ease-in-out;
+    /* Varsa gölge ekleyerek satırı öne çıkarabilirsin */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* İÇERDEKİ HER ŞEYİ OKUNUR YAPALIM: */
+/* Bu kısım, satır içindeki span, div, p gibi tüm metinleri beyaza boyar */
+.item-activated * {
+    color: var(--active-text) !important;
+    opacity: 1 !important;
+    /* Eğer transparanlık varsa onu da kaldırır */
+}
+
+.item .plate,
+.item .plaka {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.item .date {
+    color: var(--warning);
+    font-size: 21px;
+    font-weight: 600;
+}
+
+/* --- 5. MODAL VE BUTONLAR --- */
+.pop-box,
+.check-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-box.activated,
+.check-box.activated {
+    display: flex !important;
+}
+
+.show-box,
+.box {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 950px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+#price {
+    font-size: 70px;
+    font-weight: 800;
+    color: var(--success);
+    margin: 15px 0;
+    display: block;
+    width: 250px;
+}
+
+.button-box,
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    height: 55px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: 0.2s;
+}
+
+button.ok,
+button.exit {
+    background: var(--success);
+}
+
+button.cancel,
+button.delete {
+    background: var(--danger);
+}
+
+button.veresiye {
+    background: var(--warning);
+    color: #000;
+}
+
+button.fis {
+    background: #475569;
+}
+
+/* --- FOCUS DURUMU (Açık/Koyu uyumlu) --- */
+button:focus,
+button.focus {
+    outline: none;
+    /* Arka plan ve yazı rengi sabit kalır, sadece border eklenir */
+    box-shadow: 0 0 0 4px var(--bg-body),
+        /* Buton ile border arasında boşluk hissi yaratır */
+        0 0 0 7px var(--accent);
+    /* Ana vurgu renginde dış çerçeve */
+
+    transform: scale(1.05);
+    /* Odaklanan butonun hafifçe büyümesi UX'i artırır */
+    transition: all 0.2s ease;
+}
+
+/* BİLDİRİMLER */
+.nofication-box {
+    position: fixed;
+    top: 95px;
+    right: 20px;
+    z-index: 5555;
+    font-size: 26px;
+}
+
+.nofication-box div {
+    padding: 10px 20px;
+    padding-right: 40px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white !important;
+    margin-bottom: 8px;
+}
+
+.nofication-box .giris {
+    background: var(--success);
+}
+
+.nofication-box .cıkıs {
+    background: var(--danger);
+}
+
+.nofication-box .cıkıs {
+    background: var(--danger);
+}
+
+.nofication-box .veresiye {
+    background: var(--warning);
+}
+
+
+
+
+
+
+
+
+/* --- LİSTE ELEMANI HOVER EFEKTİ --- */
+.item {
+    /* Mevcut özelliklere ek olarak geçiş yumuşatıcı ekliyoruz */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    cursor: pointer;
+    will-change: transform;
+    /* Performans optimizasyonu */
+}
+
+.item:hover {
+    /* Hafif büyüme efekti */
+    transform: scale(1.03) translateY(-2px);
+
+    /* Derinlik katan yumuşak gölge */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    /* Belirginleşen kenarlık */
+    border-color: var(--accent);
+}
+
+/* Tıklama anında (Active) hafifçe geri basılma hissi */
+.item:active {
+    transform: scale(0.98);
+}
+
+
+.number-list .item.kamyonet{
+    color: var(--danger);
+    color: red;
+}
+
+
+.pop-box {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-box.activated {
+    display: flex;
+}
+
+.pop-box .show-box {
+    background: var(--modal-bg);
+    color: var(--text-main);
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Plaka Metni */
+.pop-box .message-box h1 {
+    font-size: 76px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+/* Giriş/Çıkış Bilgileri */
+.pop-box .message-box h2 {
+    font-size: 18px;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+/* Süre Bilgisi */
+.pop-box .message-box p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: var(--text-main);
+}
+
+/* Fiyat Kutusu */
+.pop-box .price-container {
+    background: var(--price-bg);
+    /* border: 2px solid var(--border-color); */
+    border-radius: 16px;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 25px 0;
+}
+
+.pop-box .price-container input {
+    font-size: 80px;
+    font-weight: 900;
+    color: #ef4444;
+    /* Fiyat her iki modda da dikkat çekici kalmalı */
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 250px;
+}
+
+/* Butonlar İçin Grid Yapısı */
+.pop-box .button-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 sütunlu yapı */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Kapat ve Veresiye butonlarını alt satıra tam yaymak isterseniz */
+.pop-box .button-box button {
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.button-box .exit {
+    background: #10b981;
+    color: white;
+    grid-column: span 1;
+}
+
+.button-box .delete {
+    background: #f8fafc;
+    color: #1e293b;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.button-box .fis {
+    background: #64748b;
+    color: white;
+}
+
+.button-box .veresiye {
+    background: #f59e0b;
+    color: white;
+    grid-column: span 2;
+}
+
+.button-box .close {
+    background: #94a3b8;
+    color: white;
+    grid-column: span 1;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+
+.pop-box {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-box.activated {
+    display: flex;
+}
+
+.pop-box .show-box {
+    background: var(--modal-bg);
+    color: var(--text-main);
+    width: 100%;
+    max-width: 1050px;
+    /* Genişlettik ki butonlar rahat sığsın */
+    padding: 50px;
+    padding-top: 0;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* --- PLAKA (Devasa Boyut) --- */
+.pop-box .message-box h1 {
+    font-size: 110px;
+    /* Plakayı öne çıkardık */
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.pop-box .message-box h2 {
+    font-size: 26px;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+/* --- FİYAT ALANI --- */
+.pop-box .price-container {
+    background: var(--price-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    margin: 30px 0;
+}
+
+.pop-box .price-container input {
+    font-size: 100px;
+    font-weight: 800;
+    color: #ef4444;
+    /* Kırmızı/Turuncu fiyat */
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 280px;
+}
+
+/* --- YAN YANA BUTONLAR --- */
+.pop-box .button-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* Butonlar arası boşluk */
+    margin-top: 20px;
+    flex-wrap: wrap;
+    /* Küçük ekranlarda alta kayması için */
+}
+
+.pop-box .button-box button {
+    flex: 1;
+    /* Hepsi eşit genişlikte olsun */
+    min-width: 140px;
+    height: 65px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Buton Renkleri */
+.btn-exit {
+    background: #10b981;
+    color: white;
+}
+
+/* Yeşil */
+.btn-delete {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* Beyaz */
+.btn-fis {
+    background: #475569;
+    color: white;
+}
+
+/* Gri */
+.btn-veresiye {
+    background: #f59e0b;
+    color: white;
+}
+
+/* Turuncu */
+.btn-close {
+    background: #94a3b8;
+    color: white;
+}
+
+/* Açık Gri */
+
+.pop-box .button-box button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+
+/* --- PLAKA --- */
+.pop-box .message-box h1 {
+    font-size: 100px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+/* --- FİYAT ALANI (İstenen Düzenleme) --- */
+.pop-box .price-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.pop-box #price {
+    font-size: 200px;
+    /* Devasa boyut */
+    font-weight: 600;
+    color: #f43f5e;
+    /* Belirgin kırmızı/turuncu */
+    background: transparent;
+    /* Arka plan yok */
+    /* background-color: white; */
+    border-radius: 15px;
+    border: none;
+    /* Border yok */
+    outline: none;
+    /* Tıklayınca çerçeve çıkmaz */
+    text-align: center;
+    width: 100%;
+    width: 450px;
+    max-width: 500px;
+    letter-spacing: 5px;
+    margin: 10px auto;
+
+
+}
+
+.pop-box .popboxinput {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.remove-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* --- YAN YANA BUTONLAR --- */
+.pop-box .button-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.pop-box .button-box button {
+    flex: 1;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Buton Renkleri */
+.btn-exit {
+    background: #10b981;
+    color: white;
+}
+
+.btn-delete {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.btn-fis {
+    background: #475569;
+    color: white;
+}
+
+.btn-veresiye {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-close {
+    background: #94a3b8;
+    color: white;
+}
+
+
+/* SİL BUTONU: Tehlikeyi belirtmek için net ama göz yormayan bir kırmızı */
+.btn-delete {
+    background-color: #ef4444 !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* FİŞ YAZDIR: Bilgi ve işlem odaklı olduğu için daha doygun bir mavi-gri */
+.btn-fis {
+    background-color: #334155 !important;
+    color: white !important;
+}
+
+/* KAPAT: İptal işlemini belirtmek için hafif koyu bir kırmızı-pembe veya nötr koyu gri */
+.btn-close {
+    background-color: #94a3b8 !important;
+    /* Mevcut hali çok açıksa #64748b deneyebilirsin */
+    color: white !important;
+}
+
+/* Eğer Kapat butonunun da kırmızı tonlarında olmasını istersen */
+.btn-close-alt {
+    background-color: #fca5a5 !important;
+    /* Daha yumuşak bir kırmızı/pembe */
+    color: #991b1b !important;
+}
+
+
+/* Sil butonu odaklandığında kırmızı bir halka oluşsun */
+.btn-delete:focus {
+    box-shadow: 0 0 0 4px #ffffff, 0 0 0 7px #fca5a5;
+    transform: scale(1.05);
+}
+
+/* Kapat butonu odaklandığında gri bir halka oluşsun */
+.btn-close:focus {
+    box-shadow: 0 0 0 4px #ffffff, 0 0 0 7px #cbd5e1;
+    transform: scale(1.05);
+}
+
+
+/* --- BUTON RENKLERİ GÜNCELLEME (EN ALTTA OLMALI) --- */
+
+/* SİL BUTONU: Tam belirgin tehlike kırmızısı */
+.pop-box .button-box .btn-delete,
+.pop-box .button-box .delete {
+    background-color: #dc2626 !important;
+    /* Daha koyu ve net kırmızı */
+    color: #ffffff !important;
+}
+
+/* KAPAT BUTONU: Vazgeçme eylemi için koyu ve belirgin gri veya soft kırmızı */
+.pop-box .button-box .btn-close,
+.pop-box .button-box .close {
+    background-color: #4b5563 !important;
+    /* Daha belirgin koyu gri */
+    color: #ffffff !important;
+}
+
+/* Alternatif: Kapat butonu da kırmızımsı olsun isterseniz bunu kullanın */
+/* .pop-box .button-box .btn-close { background-color: #f87171 !important; color: white !important; } */
+
+/* FİŞ YAZDIR: İşlem odaklı koyu mavi-gri */
+.pop-box .button-box .btn-fis,
+.pop-box .button-box .fis {
+    background-color: #1e293b !important;
+    /* Koyu lacivert/gri tonu */
+    color: #ffffff !important;
+}
+
+/* --- FOCUS (ODAKLANMA) HALKALARI --- */
+
+/* Sil ve Kapat için odaklanınca kırmızı/gri uyarı halkası */
+.btn-delete:focus,
+.delete:focus {
+    box-shadow: 0 0 0 4px var(--bg-card), 0 0 0 7px #ef4444 !important;
+}
+
+.btn-close:focus,
+.close:focus {
+    box-shadow: 0 0 0 4px var(--bg-card), 0 0 0 7px #6b7280 !important;
+}
+
+
+/* FİŞ YAZDIR BUTONU - KESİN ÇÖZÜM */
+.pop-box .button-box .btn-fis,
+.pop-box .button-box .fis {
+    background-color: #6366f1 !important;
+    /* İndigo Mavisi - Hem açık hem koyu modda çok belirgindir */
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* SİL BUTONU - BELİRGİN KIRMIZI */
+.pop-box .button-box .btn-delete,
+.pop-box .button-box .delete {
+    background-color: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+/* KAPAT BUTONU - BELİRGİN GRİ/KIRMIZI */
+.pop-box .button-box .btn-close,
+.pop-box .button-box .close {
+    background-color: #64748b !important;
+    /* Daha açık bir gri tonu */
+    color: #ffffff !important;
+}
+
+
+.btn-fis:focus,
+.fis:focus {
+    box-shadow: 0 0 0 4px var(--bg-body), 0 0 0 7px #818cf8 !important;
+    transform: scale(1.05);
+}
+
+
+/* Sağ Üst Toplam Ücret Kutusu */
+.total-info-box {
+    background: var(--bg-card);
+    /* Kart rengine uyum sağlar */
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.total-info-box p {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.total-info-box p span {
+    color: var(--accent);
+    /* Fiyat vurgusu için mavi tonu */
+    font-size: 52px;
+    font-weight: 800;
+}
+
+/* Kutu içindeki özel buton */
+.total-exit-btn {
+    background-color: #6366f1 !important;
+    /* Fiş yazdır ile uyumlu modern mavi */
+    color: white !important;
+    height: 40px !important;
+    /* Diğerlerinden biraz daha ince */
+    font-size: 20px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 5px 8px;
+}
+
+.total-exit-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}

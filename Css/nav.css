@@ -1,0 +1,46 @@
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px ;
+    padding-bottom: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3A59D1;
+}
+
+nav .item {
+    padding-right: 30px;
+    font-size: 20px;
+    color: #3A59D1;
+}
+nav #liste_count{
+    font-size: 55px;
+}
+
+nav .baslik {
+    font-size: 20px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.visible{
+    opacity: 0;
+    transition: 0.1s all linear 2s;
+}
+
+.visible:hover{
+    opacity: 1;
+}

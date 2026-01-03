@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    width: 50.1mm;
+    height: 101.1mm;
+    /* border: 1px solid red; */
+    writing-mode: vertical-lr;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.box h1{
+    font-size: 19px;
+    letter-spacing: 3px;
+    font-weight: 900;
+}
+
+.box .plaka{
+    margin-right: 8px;
+    font-size: 58px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.box .date{
+
+    margin-right: 2px;
+    font-size: 18px;
+}
+.box .telephone{
+    /* margin-left: 15px;
+    margin-right: 10px; */
+    font-size: 16px;
+}
+
+.box .date .time{
+    font-weight: bold;
+}
+
+.box input{
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nuroğlu Katlı Otopark</title>
+
+        <link rel="stylesheet" href="Css/index.css">
+        <link rel="stylesheet" href="Css/nav.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    </head>
+
+    <!-- 
+    <div class="box" id="fis">
+        <p class="baslik">NUROĞLU KATLI OTOPARK</p>
+        <p class="plaka" id="plaka">34 HCA 752</p>
+        <p class="saat">Giriş Saati : <span class="date" id="date">12:12</span></p>
+    </div> -->
+
+
+    <body onload="loaded()">
+        <nav class="fis-out">
+            <div class="baslik">
+                <!-- <img src="trabzonspor7976.jpg" width="105px" alt="" srcset=""> -->
+                <a href="index.html">
+                    <h1>NUROĞLU KATLI OTOPARK</h1>
+                </a>
+            </div>
+            
+
+
+            <div class="flex">
+                <a href="HTML/veresiye.html">
+                    <div class="item">
+                        Veresiye
+                    </div>
+                </a>
+
+                <div class="flex visible">
+                    <a href="HTML/islem.html">
+                        <div class="item">
+                            İşlem Geçmişi
+                        </div>
+                    </a>
+
+
+
+                    <a href="HTML/liste.html" target="_blank">
+                        <div class="item" id="liste_count">
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+
+        </nav>
+
+
+        <div class="input-box fis-out">
+            <input type="text" id="plaka">
+        </div>
+
+        <div class="number-list fis-out" id="number-list">
+
+            <!-- <div class="item" onclick="tıkla(e)">
+                <div class="plate">34 HCA 888</div>
+                <div class="date">20:52 19/12/25</div>
+            </div> -->
+
+        </div>
+
+
+
+        <div class="pop-box fis-out" id="popbox">
+
+            <div class="show-box">
+
+                <input type="text" id="pop-box-input" class="popboxinput">
+                <div class="message-box">
+                    <div style="display: flex;justify-content: space-around;align-items: center;">
+
+                        <div id="value">
+                            <!-- <h1>34 HCA 752</h1>
+                            
+                            <h2>Giriş Saati : 06/12 12/12/25</h2>
+                            <h2>Çıkış Saati Saati : 06/12 12/12/25</h2>
+                            <h2>Geçen Süre : 2 Saat 15 dakika</h2> -->
+                        </div>
+                        <div class="veresiye-list" id="veresiye-list">
+                        </div>
+                    </div>
+                    <input id="price">
+
+                </div>
+
+
+                <div class="button-box" id="buttonbox">
+                    <button class="exit focus" id="exit-car" onclick="exitcar('cıkıs')">Çıkış Yap</button>
+
+                    <button class="delete" onclick="deleteCar()">Kaydı Sil</button>
+                    <button class="fis" onclick="fisyazdir()">Fiş Yazdır</button>
+                    <button class="veresiye" onclick="veresiyecar()">Veresiye Çık</button>
+                    <button class="close" onclick="closemodal()">Kapat</button>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="check-box fis-out" id="checkbox">
+            <div class="box">
+                <input type="text" id="checkbox-input" class="checkbox-input remove-input">
+                <p>Araç türü otomobil mi? </p>
+                <div class="button-group">
+                    <button class="ok focus" id="new-car-ok" onclick="newCar('taksi')">Taksi</button>
+                    <button class="cancel" onclick="newCar('kamyonet')">Kamyonet</button>
+                    <!-- </div>
+                <div class="button-group"> -->
+
+                    <button class="ok" id="new-car-ok" onclick="newCarwithFis('taksi')">Fiş Yazdır</button>
+                    <button class="cancel" onclick="newCarwithFis('kamyonet')">Fiş Yazdır</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="check-box " id="areyousure">
+            <div class="box">
+                <input type="text" class="checkbox-input remove-input">
+                <p>Emin misiniz ? </p>
+                <div class="button-group">
+                    <button onclick="totalexitcar('totalcıkıs')" class="ok focus">Evet</button>
+                    <button onclick="closeSure()" class="cancel">Hayır</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="nofication" class="nofication-box">
+            <!-- <div class="giris">
+                61 VV 4466
+            </div> -->
+        </div>
+
+        <script src="JS/url.js"></script>
+        <script src="JS/index.js"></script>
+        <script src="JS/db.js"></script>
+    </body>
+
+
+
+</html>
